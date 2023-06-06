@@ -6,3 +6,5 @@ An example project demonstrating how to use the new [SensitiveContentAnalysis](h
 <img src="SensitiveSummaryImage.png" alt="Sensitive Screen Activation Flow" title="Sensitive Screen Activation Flow"/>
 </p>
 </br>
+
+Requirements: Xcode 15+

@@ -15,7 +15,6 @@ struct PhotosUILibraryChooser: UIViewControllerRepresentable {
 
     class CoordinatorUI: NSObject, UINavigationControllerDelegate, PHPickerViewControllerDelegate {
         
-//        @Published var parent: PhotosUILibraryChooser
         let parent: PhotosUILibraryChooser
 
         init(_ parent: PhotosUILibraryChooser) {
@@ -30,11 +29,11 @@ struct PhotosUILibraryChooser: UIViewControllerRepresentable {
             result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
                 if let error = error {
                     print("Error loading image: \(error.localizedDescription)")
-                    self?.parent.presentationMode.wrappedValue.dismiss() // Dismiss the picker view
+                    self?.parent.presentationMode.wrappedValue.dismiss()
                 } else if let image = image as? UIImage {
                     DispatchQueue.main.async { [weak self] in
-                        self?.parent.selectedImage = image // Update the selected image
-                        self?.parent.presentationMode.wrappedValue.dismiss() // Dismiss the picker view
+                        self?.parent.selectedImage = image
+                        self?.parent.presentationMode.wrappedValue.dismiss()
                     }
                 }
             }
